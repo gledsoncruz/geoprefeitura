@@ -65062,3 +65062,203 @@ Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-02-24 11:44:28 -03
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-24 11:44:28 -0300
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-26 15:20:03 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (4.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (8.1ms)[0m  SELECT f_geometry_column,coord_dimension,srid,type FROM geometry_columns WHERE f_table_name='schema_migrations'
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 902ms (Views: 901.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/educacaos.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/leaflet-draw.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/leaflet-google.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/leaflet-draw.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/educacaos.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:04 -0300
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 36ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/educacaos.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/leaflet-draw.css?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/leaflet-google.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/leaflet-draw.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/educacaos.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-26 15:20:11 -0300
