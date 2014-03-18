@@ -108,7 +108,7 @@ map.on('draw:created', function (e) {
 
     $("#btnEduCancel").click( function()
            {
-
+            editarEdu.removeLayer(layer);
            }
         );
 
