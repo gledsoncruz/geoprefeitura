@@ -1,25 +1,28 @@
 class EducacaosController < ApplicationController
   before_action :set_educacao, only: [:show, :edit, :update, :destroy]
 
+
+
   # GET /educacaos
   # GET /educacaos.json
   def index
+    @educacao = Educacao.new
     @educacaos = Educacao.all
 
-    # factory = RGeo::GeoJSON::EntityFactory.instance
-    # features = []
-    # @educacaos.each do |edu|
-    #   feature = factory.feature(edu.the_geom, nil, {id: edu.id, nome: edu.nome, email: edu.email, contato: edu.contato})
-    #   features << feature
-    # end
+     factory = RGeo::GeoJSON::EntityFactory.instance
+     features = []
+     @educacaos.each do |edu|
+       feature = factory.feature(edu.the_geom, nil, {id: edu.id, nome: edu.nome, email: edu.email, contato: edu.contato})
+       features << feature
+     end
 
-    # json_edu = RGeo::GeoJSON.encode factory.feature_collection(features)
+     json_edu = RGeo::GeoJSON.encode factory.feature_collection(features)
 
-    #  respond_to do |format|
-    #    format.html
-    #    format.json { render :json => json_edu }
-    #    format.xml { render :xml => @educacaos }
-    #  end
+      respond_to do |format|
+        format.html
+        format.json { render :json => json_edu }
+        format.xml { render :xml => @educacaos }
+      end
   end
 
   # GET /educacaos/1
@@ -40,10 +43,12 @@ class EducacaosController < ApplicationController
   # POST /educacaos.json
   def create
     @educacao = Educacao.new(educacao_params)
+    #the_geom = Educacao.find(params[:the_geom])
+    #puts the_geom
 
     respond_to do |format|
       if @educacao.save
-        format.html { redirect_to @educacao, notice: 'Educacao was successfully created.' }
+        format.html { redirect_to educacaos_url, notice: 'Educacao was successfully created.' }
         format.json { render action: 'show', status: :created, location: @educacao }
       else
         format.html { render action: 'new' }
@@ -80,6 +85,8 @@ class EducacaosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_educacao
       @educacao = Educacao.find(params[:id])
+      #@educacao.update_attributes(params[:wkt])
+      #@educacao.the_geom = Educacao.find(params[:dados])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

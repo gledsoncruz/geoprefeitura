@@ -2,9 +2,12 @@
   <%= f.input :nome %>
   <%= f.input :email %>
   <%= f.input :contato %>
+  <%= hidden_field(:educacao, :the_geom) %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                educacaos_path, :class => 'btn' %>
+
+    <button id="btnEduCancel" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+
+
   </div>
 <% end %>

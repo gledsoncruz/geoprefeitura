@@ -1,9 +1,9 @@
 development:
   adapter: postgis
   postgis_extension: true
-  host: 10.1.0.73
+  host: localhost #10.1.0.73
   port: 5432
-  encoding: LATIN1
+  encoding: UTF8 #LATIN1
   #collate: en_US.UTF8
   #ctype: en_US.UTF8
   database: geoprefeitura
@@ -11,14 +11,15 @@ development:
   username: geo
   password: geo
   #schema_search_path: "public,postgis"
+  #script_dir: /Library/PostgreSQL/9.2/share/postgresql/contrib/postgis #MAC OS
   script_dir: /usr/share/postgresql/9.1/contrib/postgis-1.5
 
 production:
   adapter: postgis
   postgis_extension: true
-  host: 10.1.0.73
+  host: localhost #10.1.0.73
   port: 5432
-  encoding: LATIN1   #utf8
+  encoding: UTF8 #LATIN1   #utf8
   #collate: en_US.UTF8
   #ctype: en_US.UTF8
   database: geoprefeitura
@@ -26,6 +27,7 @@ production:
   username: geo
   password: geo
   #schema_search_path: "public,postgis"
+  #script_dir: /Library/PostgreSQL/9.2/share/postgresql/contrib/postgis
   script_dir: /usr/share/postgresql/9.1/contrib/postgis-1.5
 
 # test:
