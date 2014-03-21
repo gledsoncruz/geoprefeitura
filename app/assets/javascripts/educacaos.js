@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-
+if ($('body.educacaos').length) {
 //function initEduMap(){
 
 
@@ -155,5 +155,6 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 L.control.scale().addTo(map);
 
 //}
+}
 
 });
