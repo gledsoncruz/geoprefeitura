@@ -1,13 +1,23 @@
-<%= simple_form_for @educacao, :html => { :class => 'form-horizontal' } do |f| %>
+
+
+
+
+<%# Conditionally set remote: true. Also, passing model name as data attribute %>
+
+<%= simple_form_for(@educacao, remote: true, html: {role: :form, :class => 'form-horizontal' }) do |f| %>
+
+
   <%= f.input :nome %>
   <%= f.input :email %>
   <%= f.input :contato %>
   <%= hidden_field(:educacao, :the_geom) %>
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
 
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary', :id => 'btn-educacao-submit' %>
+    <!--button id="btn-educacao-submit" type="button" class="btn-primary">Salvar</button-->
     <button id="btnEduCancel" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 
 
   </div>
+
 <% end %>

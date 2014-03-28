@@ -53,6 +53,7 @@ class EducacaosController < ApplicationController
       else
         format.html { render action: 'new' }
         format.json { render json: @educacao.errors, status: :unprocessable_entity }
+        format.js { render json: @educacao.errors, status: :unprocessable_entity }
       end
     end
   end
