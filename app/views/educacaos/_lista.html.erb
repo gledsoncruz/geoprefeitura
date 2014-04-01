@@ -1,33 +1,31 @@
 <%- model_class = Educacao -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h4>Unidades Educacionais</h4>
 </div>
-<table class="table table-striped">
+<table class="table table-bordered table-hover table-condensed">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:diretor) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:contato) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%= model_class.human_attribute_name(:tipo) %></th>
+      <th colspan=3 style="text-align: center;"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @educacaos.each do |educacao| %>
       <tr>
-        <td><%= link_to educacao.id, educacao_path(educacao) %></td>
+        <td><%= educacao.id%></td>
         <td><%= educacao.nome %></td>
-        <td><%= educacao.email %></td>
+        <td><%= educacao.diretor %></td>
+        <td><%= educacao.email.downcase %></td>
         <td><%= educacao.contato %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_educacao_path(educacao), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      educacao_path(educacao),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
+        <td><%= educacao.tipo %></td>
+        <td style="text-align: center;"><%= link_to '', educacao, :class => 'icon-search', :title => 'Visualizar' %></td>
+        <td style="text-align: center;"><%= link_to '', edit_educacao_path(educacao), :class => 'icon-pencil', :title => 'Editar' %></td>
+        <td style="text-align: center;"><%= link_to '', educacao, :class => 'icon-trash', :method => :delete, :data => { :confirm => 'Are you sure?' }, :title => 'Apagar' %></td>
       </tr>
     <% end %>
   </tbody>

@@ -16,6 +16,11 @@
 
  html, body {height:100%;}
 
+ .leaflet-popup-content {
+    line-height: 0 !important;
+    margin: 13px 19px;
+}
+
 /* Custom container */
 .container {
 	margin: 0 auto;

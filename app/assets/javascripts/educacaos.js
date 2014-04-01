@@ -1,6 +1,12 @@
 $(document).ready(function () {
 
-if ($('body.educacaos').length) {
+  form_id = $("form").attr("id");
+
+if ($('body.educacaos_index').length) {
+
+
+
+  console.log(form_id);
 
 
 L.Icon.Default.imagePath = "/assets"
@@ -35,7 +41,8 @@ var logradouros = new L.TileLayer.WMS("http://geo.epdvr.com.br/geoserver/wms", {
 
 function onEducacaoFeature(feature, layer) {
   if (feature.properties && feature.properties.nome) {
-      layer.bindPopup("<p><b>Nome:</b> "+feature.properties.nome+"</p>");
+      layer.bindPopup("<p><b>Nome:</b> "+feature.properties.nome+"</p>"+
+                      "<p><b>Email:</b> "+feature.properties.email+"</p>");
       //console.log(feature.properties.nome);
   }
 }
@@ -89,6 +96,7 @@ map.on('draw:created', function (e) {
     $('#myModal').css({"z-index":"99999"});
     $('#map').css({"z-index":"0"});
     $('#myModal').modal('show');
+    //console.log(form_id);
 
     $('#educacao_the_geom').val('');
     $('#educacao_the_geom').val(wkt);
@@ -100,29 +108,18 @@ map.on('draw:created', function (e) {
             editarEdu.removeLayer(layer);
            }
         );
-
-    $("#btn-educacao-submit").click( function()
-           {
-            //alert('oooopa');
-            $(this).createEdu();
-
-           }
-        );
-
-
-
 });
 
-// map.on('draw:deleted', function (e) {
-//     var type = e.layerType,
-//         layer = e.layer;
+map.on('draw:deleted', function (e) {
+    var type = e.layerType,
+        layer = e.layer;
 
-//     if (type === 'marker') {
-//         layer.bindPopup('A popup!');
-//     }
+    if (type === 'marker') {
+        alert('Deletado!!');
+    }
 
-//     editarEdu.addLayer(layer);
-// });
+    editarEdu.addLayer(layer);
+});
 
 
 
@@ -159,37 +156,38 @@ L.control.scale().addTo(map);
 
 
 
-$(document).bind('ajaxError', 'form#new_educacao', function(event, jqxhr, settings, exception){
+$(document).bind('ajaxError', 'form#'+form_id, function(event, jqxhr, settings, exception){
 
     $(event.data).formErrors( $.parseJSON(jqxhr.responseText) );
 
   });
 
-//$('form#new_educacao').trigger('submit.rails');
 
-$.fn.createEdu = function(){
-//alert('ooopa');
-$('#new_educacao').submit(function() {
 
+$('form').submit(function(event) {
+    event.preventDefault();
     var valuesToSubmit = $(this).serialize();
+    console.log($(this).attr('action'));
     console.log(valuesToSubmit);
 
     $.ajax({
-        url: $(this).attr('create'), //sumbits it to the given url of the form
+        url: $(this).attr('action'), //sumbits it to the given url of the form
         data: valuesToSubmit,
         dataType: "JSON",
         type: "POST" // you want a difference between normal and ajax-calls, and json is standard
     }).success(function(json){
+        //alert('form#'+form_id);
         $('#myModal').modal('hide');
         $('#msg').remove();
         $('<div>').attr({ class: 'alert fade in alert-success', id: 'msg' }).html('Unidade Educacional salvo com sucesso').insertAfter( $('#cabecalho') ).fadeIn(200).show();
         $('#msg').fadeOut(5000);
 
+    }).error(function(jqXHR, textStatus, errorThrown){
+        console.log(textStatus + ' - ' + errorThrown);
     });
 
     return false; // prevents normal behaviour
 });
-}
 
 
 
@@ -198,20 +196,25 @@ $('#new_educacao').submit(function() {
     $('.controls input').each(function(){
       $(this).val('');
     })
+    $('#educacao_tipo option')[0].selected = true;
   });
 
 
 
   $.fn.formErrors = function(errors){
 
-    //$form = this;
+    $form = $(this);
     $(this).clearErrors();
-    model = 'educacao';
-
+    model = $(this).data('model');//'educacao';
+    acao = $(this).attr('action');
+    console.log(acao);
 
     $.each(errors, function(field, messages){
       $input = $('input[name="' + model + '[' + field + ']"]');
+      $select = $('select[name="' + model + '[' + field + ']"]');
+      //console.log($select);
       $input.closest('.control-group').addClass('error');
+      $select.closest('.control-group').addClass('error');
       $('<spam>').attr({ class: 'help-inline' }).insertAfter( $('#'+model+'_'+field) ).html( messages.join(' & ') );
     });
 
@@ -231,19 +234,6 @@ $('#new_educacao').submit(function() {
       $(this).removeClass('error');
 
     });
-
-
-
-  // $.fn.submitWithAjax = function () {
-  //   this.submit(function () {
-
-  //     $.post($(this).attr('action'), $(this).serialize(), null, "script");
-  //     $("#myModal").modal('hide');
-  //     return false;
-  //   });
-  // };
-
-
 
   });
 

@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= params[:controller] %>">
+<body class=<%= params[:controller]+'_'+params[:action]%>>
 
 
 

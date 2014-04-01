@@ -4,7 +4,9 @@ Geoprefeitura::Application.routes.draw do
 
   root 'welcome#index'
   devise_for :users
-  resources :educacaos, :path => "educacional"
+  resources :educacaos, :path => "educacional" do
+    get 'lista', :on => :collection
+  end
 
   #match 'educacional/lista', to: 'educacaos#lista', :via => :get, :collection => true
 

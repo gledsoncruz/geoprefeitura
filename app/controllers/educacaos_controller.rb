@@ -1,7 +1,14 @@
 class EducacaosController < ApplicationController
+
+
   before_action :set_educacao, only: [:show, :edit, :update, :destroy]
 
 
+
+
+  def lista
+    @educacaos = Educacao.all
+  end
 
   # GET /educacaos
   # GET /educacaos.json
@@ -28,6 +35,10 @@ class EducacaosController < ApplicationController
   # GET /educacaos/1
   # GET /educacaos/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # GET /educacaos/new
@@ -37,21 +48,23 @@ class EducacaosController < ApplicationController
 
   # GET /educacaos/1/edit
   def edit
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # POST /educacaos
   # POST /educacaos.json
   def create
     @educacao = Educacao.new(educacao_params)
-    #the_geom = Educacao.find(params[:the_geom])
-    #puts the_geom
 
     respond_to do |format|
       if @educacao.save
         format.html { redirect_to educacaos_url, notice: 'Educacao was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @educacao }
+        format.json { render :json => @educacao }
       else
-        format.html { render action: 'new' }
+        #format.html { render action: 'new' }
         format.json { render json: @educacao.errors, status: :unprocessable_entity }
         format.js { render json: @educacao.errors, status: :unprocessable_entity }
       end
@@ -64,7 +77,7 @@ class EducacaosController < ApplicationController
     respond_to do |format|
       if @educacao.update(educacao_params)
         format.html { redirect_to @educacao, notice: 'Educacao was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render :json => @educacao }
       else
         format.html { render action: 'edit' }
         format.json { render json: @educacao.errors, status: :unprocessable_entity }
@@ -86,12 +99,10 @@ class EducacaosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_educacao
       @educacao = Educacao.find(params[:id])
-      #@educacao.update_attributes(params[:wkt])
-      #@educacao.the_geom = Educacao.find(params[:dados])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def educacao_params
-      params.require(:educacao).permit(:nome, :email, :contato, :the_geom)
+      params.require(:educacao).permit(:nome, :email, :contato, :the_geom, :tipo, :diretor)
     end
 end
