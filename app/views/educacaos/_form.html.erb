@@ -1,7 +1,6 @@
 
 <%# Conditionally set remote: true. Also, passing model name as data attribute %>
 <%- model_class = Educacao -%>
-<% modal ||= false %>
 
 <%= simple_form_for(@educacao, remote: true, html: {role: :form, :class => 'form-horizontal', 'data-model' => model_class.model_name.human.downcase }) do |f| %>
 
@@ -14,9 +13,14 @@
   <%= hidden_field(:educacao, :the_geom) %>
 
   <div class="form-actions">
+
       <%= f.button :submit, :class => 'btn-primary', :id => 'btn-educacao-submit' %>
       <!--button id="btn-educacao-submit" type="button" class="btn btn-default btn-primary">Salvar</button-->
-      <button id="btnEduCancel" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      <% if @modal %>
+        <button id="btnEduCancel" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+      <% else%>
+        <%= link_to 'Cancelar', lista_educacaos_path, :class => 'btn btn-danger' %>
+      <% end%>
   </div>
 
 <% end %>

@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20140331134409) do
   enable_extension "plpgsql"
 
   create_table "educacaos", force: true do |t|
-    t.string   "nome"
-    t.string   "email"
-    t.string   "contato"
+    t.string   "nome",       limit: 80,                                               null: false
+    t.string   "email",      limit: 80,                                               null: false
+    t.string   "contato",    limit: 16,                                               null: false
     t.spatial  "the_geom",   limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.datetime "created_at"
     t.datetime "updated_at"

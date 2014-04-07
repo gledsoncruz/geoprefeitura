@@ -21,5 +21,6 @@
 //= require leaflet
 //= require leaflet-google
 //= require leaflet-draw
+//= require jquery.maskedinput.min
 //= require_tree .
 

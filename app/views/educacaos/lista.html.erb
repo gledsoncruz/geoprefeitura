@@ -1,4 +1,11 @@
+<div class="page-header">
+  <h4>Unidades Educacionais</h4>
+</div>
 
+<%= form_tag  lista_educacaos_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search], :class => 'input-medium search-query' %>
+    <%= submit_tag "Consultar", :nome => nil, :class => 'btn btn-primary' %>
+<% end %>
     <%= render partial: 'lista'%>
 
 

@@ -4,10 +4,14 @@ class EducacaosController < ApplicationController
   before_action :set_educacao, only: [:show, :edit, :update, :destroy]
 
 
-
-
   def lista
-    @educacaos = Educacao.all
+    @educacaos = Educacao.search(params[:search])
+    #@educacaos = Educacao.where("nome like '%?%'", params[:nome]).page(params[:page]).order('created_at DESC')
+    respond_to do |format|
+        format.html
+        format.json { render :json => @educacaos }
+        format.xml { render :xml => @educacaos }
+      end
   end
 
   # GET /educacaos
@@ -15,6 +19,7 @@ class EducacaosController < ApplicationController
   def index
     @educacao = Educacao.new
     @educacaos = Educacao.all
+    @modal = true
 
      factory = RGeo::GeoJSON::EntityFactory.instance
      features = []
@@ -35,9 +40,14 @@ class EducacaosController < ApplicationController
   # GET /educacaos/1
   # GET /educacaos/1.json
   def show
+    educacao = Educacao.find(params[:id])
+    ponto = educacao.the_geom
+    @latitude = ponto.x
+    @longitude = ponto.y
+
     respond_to do |format|
       format.html
-      format.json
+      format.json {render json: educacao}
     end
   end
 
@@ -48,6 +58,8 @@ class EducacaosController < ApplicationController
 
   # GET /educacaos/1/edit
   def edit
+    @educacao = Educacao.find(params[:id])
+    @modal = false
     respond_to do |format|
       format.html
       format.json

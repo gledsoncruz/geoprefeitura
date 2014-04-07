@@ -1,7 +1,7 @@
 <%- model_class = Educacao -%>
-<div class="page-header">
-  <h4>Unidades Educacionais</h4>
-</div>
+
+
+
 <table class="table table-bordered table-hover table-condensed">
   <thead>
     <tr>
@@ -24,13 +24,15 @@
         <td><%= educacao.contato %></td>
         <td><%= educacao.tipo %></td>
         <td style="text-align: center;"><%= link_to '', educacao, :class => 'icon-search', :title => 'Visualizar' %></td>
-        <td style="text-align: center;"><%= link_to '', edit_educacao_path(educacao), :class => 'icon-pencil', :title => 'Editar' %></td>
+        <td style="text-align: center;"><%= link_to '', edit_educacao_path(educacao), :class => 'icon-pencil', :id => educacao.id,:title => 'Editar' %></td>
         <td style="text-align: center;"><%= link_to '', educacao, :class => 'icon-trash', :method => :delete, :data => { :confirm => 'Are you sure?' }, :title => 'Apagar' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_educacao_path,
-            :class => 'btn btn-primary' %>
+<!--%= will_paginate @educacaos, :renderer => BootstrapPagination::Rails, :class => 'pagination pagination-centered' %-->
+
+<!--http://stackoverflow.com/questions/20851955/open-a-bootstrap-modal-to-edit-a-record-in-ruby-on-rails -->
+
+

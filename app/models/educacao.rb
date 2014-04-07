@@ -16,10 +16,21 @@ class Educacao < ActiveRecord::Base
 
   attr_accessible :nome, :email, :contato, :the_geom, :tipo, :diretor
 
-  validates :nome, :email, :diretor, :tipo, :contato, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :nome, :diretor, :tipo, presence: true
+  validates :email, format: { with: VALID_EMAIL_REGEX }, presence: true
+  validates :contato, length: { minimum: 15 }
 
   TIPO = ['CRECHE MUNICIPAL', 'ESCOLA ESPECIALIZADA', 'FEVRE', 'JARDIM DE INFANCIA', 'ESCOLA MUNICIPAL', 'SECRETARIA DE EDUCACAO']
 
+def self.search(search)
+  if search
+    find(:all, :conditions => ['nome LIKE ?', "%#{search.upcase}%"])
+  else
+    find(:all)
+  end
+end
 
    	module RGeo
 	   module Feature

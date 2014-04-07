@@ -1,11 +1,26 @@
 $(document).ready(function () {
 
   form_id = $("form").attr("id");
+  $("#educacao_contato").mask("(999) 9999-9999");
+
+
+  // if ($('body.educacaos_show').length) {
+
+  //   var mapOptions = {
+  //         center: new google.maps.LatLng(-34.397, 150.644),
+  //         zoom: 8,
+  //         mapTypeId: google.maps.MapTypeId.ROADMAP
+  //       };
+  //       var map = new google.maps.Map(document.getElementById("map_canvas"),
+  //           mapOptions);
+
+
+  // }
+
+
+
 
 if ($('body.educacaos_index').length) {
-
-
-
   console.log(form_id);
 
 
@@ -103,11 +118,14 @@ map.on('draw:created', function (e) {
     //layer.bindPopup('A popup!');
     editarEdu.addLayer(layer);
 
-    $("#btnEduCancel").click( function()
-           {
-            editarEdu.removeLayer(layer);
-           }
-        );
+    $('#myModal').on('hide.bs.modal', function (e) {
+    $(this).clearErrors();
+    $('.controls input').each(function(){
+      $(this).val('');
+      editarEdu.removeLayer(layer);
+    })
+    $('#educacao_tipo option')[0].selected = true;
+  });
 });
 
 map.on('draw:deleted', function (e) {
@@ -120,6 +138,8 @@ map.on('draw:deleted', function (e) {
 
     editarEdu.addLayer(layer);
 });
+
+
 
 
 
@@ -157,14 +177,14 @@ L.control.scale().addTo(map);
 
 
 $(document).bind('ajaxError', 'form#'+form_id, function(event, jqxhr, settings, exception){
-
     $(event.data).formErrors( $.parseJSON(jqxhr.responseText) );
 
   });
 
 
 
-$('form').submit(function(event) {
+
+$('form#'+form_id).submit(function(event) {
     event.preventDefault();
     var valuesToSubmit = $(this).serialize();
     console.log($(this).attr('action'));
@@ -188,18 +208,6 @@ $('form').submit(function(event) {
 
     return false; // prevents normal behaviour
 });
-
-
-
-  $('#myModal').on('hide.bs.modal', function (e) {
-    $(this).clearErrors();
-    $('.controls input').each(function(){
-      $(this).val('');
-    })
-    $('#educacao_tipo option')[0].selected = true;
-  });
-
-
 
   $.fn.formErrors = function(errors){
 
@@ -235,7 +243,19 @@ $('form').submit(function(event) {
 
     });
 
+
+
+
+
   });
+
+//***************************EDITAR*****************************
+
+
+
+
+
+
 
 
 
